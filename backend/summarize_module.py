@@ -1,10 +1,10 @@
 # summarize_module.py
+
 import os
 from openai import OpenAI
 from dotenv import load_dotenv
 
 load_dotenv()
-
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def summarize_text(text):
@@ -17,6 +17,5 @@ def summarize_text(text):
             ]
         )
         return response.choices[0].message.content.strip()
-
     except Exception as e:
         return f"요약 실패: {e}"
